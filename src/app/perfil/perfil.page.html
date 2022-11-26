@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!uid.length">
+    <div>
+      <h3 class="subtitulo encabezado" > INGRESE SUS DATOS </h3>
+
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Email:
+        </ion-label>
+        <ion-input name="email" [(ngModel)]="cliente.email" class="normal" type="string" inputmode="text">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="!IngresarEnable" >
+        <ion-label class="normal" position="floating">
+          Nombre:
+        </ion-label>
+        <ion-input name="nombre" [(ngModel)]="cliente.nombre" class="normal" type="string" inputmode="text">
+        </ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label  class="normal" position="floating">
+          Celular:
+        </ion-label>
+        <ion-input name="celular" [(ngModel)]="cliente.celular" class="normal" type="string" inputmode="numeric">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="!IngresarEnable">
+        <ion-label class="normal" position="floating">
+          Referencias de la dirección:
+        </ion-label>
+        <ion-input name="referencias" [(ngModel)]="cliente.referencia" class="normal" type="string" inputmode="text">
+        </ion-input>
+      </ion-item>
+      
+      <div style="text-align: end; margin: 10px">
+        <ion-button *ngIf="!IngresarEnable" (click)="Registrarse()" class="normal" color="primary"> Registrarse</ion-button>
+        <ion-button *ngIf="!IngresarEnable"(click)="IngresarEnable = true" class="normal" color="primary"> O ingresar</ion-button>
+        <ion-button *ngIf="IngresarEnable" (click)="Ingresar()" class="normal" color="primary"> Login</ion-button>
+        <ion-button *ngIf="IngresarEnable" (click)="IngresarEnable = false" class="normal" color="primary"> O registrarse</ion-button>
+
+      </div> 
+    </div>
+  </div>
+  
+  <div *ngIf="uid.length" >
+    
+    <h3 class="subtitulo encabezado" > TUS DATOS </h3>
+
+    <ion-item>
+      <ion-label class="normal">
+        Email: {{cliente.email}}
+      </ion-label>  
+    </ion-item>
+
+    <ion-item>
+      <ion-label  class="normal" >
+        Celular: {{cliente.celular}}
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="normal">
+        Nombre: {{cliente.nombre}}
+      </ion-label>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label class="normal">
+        Referencias de la dirección: {{cliente.referencia}}
+      </ion-label>
+    </ion-item>
+
+    <div style="text-align: end; margin: 10px">
+      <ion-button (click)="Salir()" class="normal" color="primary"> Salir </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,31 @@
+ion-toolbar{
+    background-color: var(--ion-color-categorias);
+}
+
+ion-card-header.ios {
+    display: flex;
+    flex-flow: column-reverse;
+
+  }
+
+ion-card {
+    width: 300px;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+ion-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ffffff;
+    
+    color: #fff;
+    text-align: center;
+  }
+
+  ion-button{
+    background-color: var(--ion-color-light);
+  }

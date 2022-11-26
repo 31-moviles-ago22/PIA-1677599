@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar color="cuenta">
+    <ion-title>ADMINISTRADOR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="text-align: end; margin: 10px">
+    <ion-button (click)="nuevo()" class="normal" color="dark"> Nuevo </ion-button>
+  </div> 
+
+  <div *ngIf="enableNewProducto" >
+    
+      <ion-item>
+        <ion-buttons slot="end" >
+
+          <ion-button (click)="enableNewProducto=false" >
+              <ion-icon color="dark" slot="icon-only" name="close-circle-outline"></ion-icon>
+          </ion-button>
+
+          <ion-button color='primary' slot="icon-only" (click)="guardarProducto()">
+            <ion-icon name="save-outline"></ion-icon>
+          </ion-button>
+
+        </ion-buttons>
+      </ion-item>
+
+      <h3 class="subtitulo encabezado" > INGRESE DATOS DEL PRODUCTO </h3>
+
+
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          NOMBRE:
+        </ion-label>
+        <ion-input [(ngModel)]="newProducto.Nombre" class="normal" type="string" inputmode="text">
+    
+        </ion-input>
+      </ion-item>
+
+      <ion-list>
+        <ion-item>
+          <ion-select [(ngModel)]="newProducto.Categoria" interface="action-sheet" placeholder="Selecciona la categoria">
+            <ion-select-option value="laptops">Laptops</ion-select-option>
+            <ion-select-option value="celulares">Celulares</ion-select-option>
+            <ion-select-option value="smartwatches">Smartwatches</ion-select-option>
+            <ion-select-option value="televisiones">Televisiones</ion-select-option>
+            <ion-select-option value="videojuegos">Videojuegos</ion-select-option>
+            <ion-select-option value="componentes">Componentes</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    
+      <ion-item>
+        <ion-label  class="normal" position="floating">
+          PRECIO:
+        </ion-label>
+        <ion-input [(ngModel)]="newProducto.Precio" class="normal" type="string" type="number" inputmode="numeric">
+        </ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label class="normal">
+          FOTO:
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <label for="file-upload" >
+              <ion-icon color="dark" slot="icon-only" name="images-outline"></ion-icon>
+            </label>
+            <input (change)="newImage($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <ion-item>
+        <img style="width: 200px ;" class="image" [src]="newProducto.Foto">
+      </ion-item>
+
+  </div>
+  
+  <ion-card>
+
+    <h3 class="subtitulo encabezado"> LISTA DE PRODUCTOS </h3>
+    <ion-item *ngFor="let productos of productos">
+      <ion-label class="normal">{{productos.Nombre}}</ion-label>
+      <ion-buttons>
+        <ion-button color="dark" (click)="newProducto = productos; enableNewProducto = true; " >
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="deleteProductos(productos)" >
+          <ion-icon slot="icon-only" color="danger" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+  </ion-card>
+
+
+
+</ion-content>
+

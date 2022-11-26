@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar color="inicio">
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-text class="encabezado" color="dark" style="text-align: center;">
+      <h1>CATEGORIAS</h1>
+  </ion-text>
+  <ion-slides >
+
+    <ion-slide>
+
+      <ion-button  fill="clear" [routerLink]="['/laptops']" style="width: 300px; height: 300px;" color="light">
+        <ion-card style="
+        border-radius: 30px;
+        width: 200px;
+        height: 270px;">
+          <img alt="Silhouette of mountains" src="https://i.linio.com/p/de4dd089447c0d0e1863d45bf1f4e659-product.webp" style="
+          width: 200px;
+          height: 190px;
+          padding-top: 10px;" />
+          <ion-card-header>
+            <ion-card-title>
+              <b>Laptops</b>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-button>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-button fill="clear" slot="icon-only" [routerLink]="['/celulares']" style="    width: 300px; height: 300px;" color="light">
+        <ion-card style="
+        border-radius: 30px;
+        width: 200px;
+        height: 270px;">
+          <img alt="Silhouette of mountains" src="https://i.linio.com/p/812f0b8f036367c7cdccfd787434abbd-product.webp" style="border-radius: 10px, ">
+          <ion-card-header>
+            <ion-card-title>
+              <b>Celulares</b>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-button> 
+    </ion-slide>
+
+    <ion-slide>
+
+      <ion-button  fill="clear" [routerLink]="['/componentes']" style="width: 300px; height: 300px;" color="light">
+        <ion-card style="
+        border-radius: 30px;
+        width: 200px;
+        height: 270px;">
+          <img alt="Silhouette of mountains" src="https://i.linio.com/p/e7f3716dd32e3a1283de1727991921e6-product.webp" style="
+          width: 200px;
+          height: 190px;
+          padding-top: 10px;"  />
+          <ion-card-header>
+            <ion-card-title>
+              <b>Componentes</b>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-button>
+
+    </ion-slide>
+
+    <ion-slide>
+
+      <ion-button  fill="clear" [routerLink]="['/smartwatches']" style="width: 300px; height: 300px;" color="light">
+        <ion-card style="
+        border-radius: 30px;
+        width: 200px;
+        height: 270px;">
+          <img alt="Silhouette of mountains" src="https://i.linio.com/p/367c88c7405af8aa9266dfadfc0fb701-product.webp" style="
+          width: 200px;
+          height: 190px;
+          padding-top: 10px;" />
+          <ion-card-header>
+            <ion-card-title>
+              <b>Smartwatches</b>
+            </ion-card-title>
+          </ion-card-header>         
+        </ion-card>
+      </ion-button>
+
+    </ion-slide>
+
+    <ion-slide>
+
+      <ion-button  fill="clear" [routerLink]="['/televiones']" style="width: 300px; height: 300px;" color="light">
+        <ion-card style="
+        border-radius: 30px;
+        width: 200px;
+        height: 270px;">
+          <img alt="Silhouette of mountains" src="https://i.linio.com/p/5b93615b4a96f287cad0d108bfd50671-product.webp" style="
+          width: 200px;
+          height: 190px;
+          padding-top: 10px;"  />
+          <ion-card-header>
+            <ion-card-title>
+              <b>Televisiones</b>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-button>
+
+    </ion-slide>
+
+    <ion-slide>
+
+      <ion-button  fill="clear" [routerLink]="['/videojuegos']" style="width: 300px; height: 300px;" color="light">
+        <ion-card style="
+        border-radius: 30px;
+        width: 200px;
+        height: 270px;">
+          <img alt="Silhouette of mountains" src="https://i.linio.com/p/acf113af520742defa3786785b038a3d-product.webp" style="
+          width: 200px;
+          height: 190px;
+          padding-top: 10px;" />
+          <ion-card-header>
+            <ion-card-title>
+              <b>videojuegos</b>
+            </ion-card-title>
+          </ion-card-header>         
+        </ion-card>
+      </ion-button>
+      
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col class="ion-align-items-start">
+        <ion-card >
+          <ion-card-header>
+            <ion-card-title><b>Ofertas del dia</b></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <img src="https://i.linio.com/cms/92c48ad0-66b1-11ed-b7af-ba83722ccfcd.webp" />
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title><b>Promociones ancarias</b></ion-card-title>
+          </ion-card-header>
+          
+          <ion-card-content>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/33/kindle/journeys/ZmY2OWI0YWQt/ZmY2OWI0YWQt-ZDE2YmM4ZmQt-w379._SY304_CB604104869_.jpg" />
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title><b>Buen Fin</b></ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/33/img22/Master_SIM_Q4_Homepage_and_Onsite_Full_BuenfinT5/BFIN22_SingleCard_D_Bancos_20Bonif_379x304._SY304_CB604103157_.jpg" />
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
