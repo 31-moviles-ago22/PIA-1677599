@@ -6,4 +6,19 @@
 
 <ion-content>
 
+  <div *ngFor="let producto of productos"   >
+    <ion-card *ngIf="producto.Categoria === 'smartwatches'" style="position: relative;">
+
+      <ion-img class="img-producto" [src]="producto.Foto" style="height: 350px; margin-top: auto; " ></ion-img>
+      <ion-item lines="full">
+        <ion-label style="text-align: center ;" class="subtitulo">{{producto.Nombre}}</ion-label>
+      </ion-item>
+      <p class="precio" style="text-align: center;" > ${{producto.Precio}}</p>
+      <ion-icon (click)="addCarrito()" class="icon-product" name="cart" style="width: 100%; margin: auto; font-size: 40px;" ></ion-icon>
+
+
+    </ion-card>
+
+  </div>
+
 </ion-content>

@@ -19,7 +19,11 @@ export class ProductosPage implements OnInit {
               public carritoservice: CarritoService,
               ) { 
 
+    
+
                 this.loadProductos();
+
+             
               }
 
   ngOnInit() {
@@ -27,13 +31,12 @@ export class ProductosPage implements OnInit {
   }
 
   addCarrito(){
-
-    console.log('add carrito');
-    this.carritoservice.addProducto(this.producto);
+    console.log('addCarrito');
   }
 
   loadProductos() {
     this.firestoreservice.getCollection<Productos>(this.path).subscribe( res => {
+        console.log(res);
         this.productos = res;
     });
   }

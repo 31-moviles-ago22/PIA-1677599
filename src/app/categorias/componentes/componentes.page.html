@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>videojuegos</ion-title>
+    <ion-title>componentes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div *ngFor="let producto of productos"   >
-    <ion-card *ngIf="producto.Categoria === 'videojuegos'" style="position: relative;">
+    <ion-card *ngIf="producto.Categoria === 'componentes'" style="position: relative;">
 
       <ion-img class="img-producto" [src]="producto.Foto" style="height: 350px; margin-top: auto; " ></ion-img>
       <ion-item lines="full">
@@ -19,5 +19,4 @@
     </ion-card>
 
   </div>
-
 </ion-content>

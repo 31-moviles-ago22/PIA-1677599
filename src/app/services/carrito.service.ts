@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { identity, Subscription } from 'rxjs';
 import { Clientes, Pedido, ProductoPedido, Productos } from '../models';
 import { FirebaseauthService } from './firebaseauth.service';
 import { FirestoreService } from './firestore.service';
@@ -10,9 +10,9 @@ import { FirestoreService } from './firestore.service';
 })
 export class CarritoService {
 
-   private pedido: Pedido;
-   path = 'carrito';
-   uid = '';
+   pedido: Pedido;
+   path = 'carrito/';
+   uid = ''; 
    cliente: Clientes;
    clienteSuscriber: Subscription;
    carritoSuscriber: Subscription;
@@ -22,7 +22,7 @@ export class CarritoService {
               public firestoreservice: FirestoreService,
               public router: Router) { 
 
-            this.initCarrito();
+
             this.firebaseauthservice.stateAuth().subscribe(res => {
               if (res !== null) {
                 this.uid = res.uid;
@@ -33,16 +33,16 @@ export class CarritoService {
 
 
   loadCarrito(){
-    const path = 'Clientes/' + this.uid + this.path;
+    const path = 'Clientes/' + this.uid + '/' + this.path;
     if (this.carritoSuscriber) {
       this.carritoSuscriber.unsubscribe();
     }
     this.carritoSuscriber = this.firestoreservice.getDoc<Pedido>(this.path, this.uid).subscribe( res => {
-      console.log(res);
       if (res){
         this.pedido = res;
       } else {
         this.initCarrito();
+                
       }
 
     });
@@ -58,6 +58,7 @@ export class CarritoService {
       precioTotal: null!,
       fecha: new Date(),
     }
+
   }
 
   loadCliente(){
@@ -72,35 +73,32 @@ export class CarritoService {
     });
   }
 
-
   addProducto(producto: Productos){
 
-    console.log('add producto', this.uid);
 
     if(this.uid.length) {
-      const item = this.pedido.productos.find( productoPedido =>  { (productoPedido.producto.Id === producto.Id) }); 
+
+
+      const item = this.pedido.productos.find( algo => {
+        return(algo.producto?.Id === producto?.Id)
+      });
       
-      if (item !== undefined ) {
+      if (item !== undefined) {
           item.cantidad ++;
-      } 
-      else{
+          
+      } else{
         const add: ProductoPedido = {
           cantidad: 1,
-          producto,
-          }; 
+          producto: undefined!
+        }; 
         this.pedido.productos.push(add);
-        console.log('perro');
-       };
+        };
     } else{
       this.router.navigate(['/perfil']);
       return;
     }
 
     console.log('en add pedido', this.pedido);
-    const path = 'Clientes/' + this.uid + '/' + this.path;
-     this.firestoreservice.createDoc(this.pedido, path, this.uid).then( () => {
-          console.log('añdido con exito');
-     });
 
   }
 
@@ -115,4 +113,9 @@ export class CarritoService {
   clearCarrito(){
 
   }
+
+
+ 
+
+
 }

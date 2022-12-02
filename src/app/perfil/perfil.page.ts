@@ -32,7 +32,7 @@ export class PerfilPage implements OnInit {
                ) {
 
                 this.firebaseauthservice.stateAuth().subscribe(res => {
-                  console.log(res);
+
                   if (res != null) {
                      this.uid = res.uid;
                      this.getUserInfo(this.uid);
@@ -47,7 +47,7 @@ export class PerfilPage implements OnInit {
   async ngOnInit() {
 
     const uid = await this.firebaseauthservice.getUID();
-    console.log(uid);
+
   }
 
   initCliente() {
@@ -59,7 +59,7 @@ export class PerfilPage implements OnInit {
       referencia: '',
       nombre: '',
     };
-    console.log(this.cliente);
+
   }
 
   async Registrarse() {

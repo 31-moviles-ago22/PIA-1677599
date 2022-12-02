@@ -1,22 +1,17 @@
-
-import { Component, Input, OnInit } from '@angular/core';
-import { Pedido, ProductoPedido, Productos } from 'src/app/models';
-import { ProductosPage } from 'src/app/productos/productos.page';
+import { Component, OnInit } from '@angular/core';
+import { Productos } from 'src/app/models';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
-  selector: 'app-laptops',
-  templateUrl: './laptops.page.html',
-  styleUrls: ['./laptops.page.scss'],
+  selector: 'app-componentes',
+  templateUrl: './componentes.page.html',
+  styleUrls: ['./componentes.page.scss'],
 })
-export class LaptopsPage implements OnInit {
+export class ComponentesPage implements OnInit {
 
   private path = 'productos/'
   productos: Productos[] = [];
-  @Input() producto: Productos;
-  productopedido: ProductoPedido;
-  pedido: Pedido;
 
   constructor(public firestoreservice: FirestoreService,
                public carritoservice: CarritoService,) { 
@@ -25,20 +20,16 @@ export class LaptopsPage implements OnInit {
                   this.loadProductos();
                 
                }
-
   ngOnInit() {
-
   }
-  
-    
+
   addCarrito(){
     
-      console.log('add carrito');
-      this.carritoservice.addProducto(this.producto);
-  }
+    console.log('add carrito');
+}
 
   loadProductos() {
- 
+
       this.firestoreservice.getCollection<Productos>(this.path).subscribe( res => {
 
           console.log(res);
@@ -46,12 +37,7 @@ export class LaptopsPage implements OnInit {
 
       });
       
-  
+
   }
 
-
-
-
-    
 }
-
